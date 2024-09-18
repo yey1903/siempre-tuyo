@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para Justine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #FFC0CB, #FFB6C1, #E6E6FA, #B0E0E6);
+            background-size: 400% 400%;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            animation: gradientBackground 10s ease infinite;
+        }
+
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .card {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 20px;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 182, 193, 0.4);
+            background-color: white;
+            color: #333;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.7);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(255, 105, 180, 0.8); }
+        }
+
+        #revealButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #FFC0CB;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+            transition: background-color 0.3s ease;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        #revealButton:hover {
+            background-color: #FF69B4;
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            color: #FF69B4;
+            animation: fade-in 2s ease-in;
+        }
+
+        p {
+            animation: fade-in 3s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .quote {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: #FF69B4;
+            margin-top: 20px;
+            animation: fade-in 4s ease-in-out;
+        }
+
+        /* Polvo de estrellas que sigue al cursor */
+        .dust {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: fade 1s linear;
+        }
+
+        @keyframes fade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(2); }
+        }
+
+        /* Palabras importantes */
+        .highlight {
+            color: #FF69B4;
+            font-weight: bold;
+        }
+
+        /* Botón visible */
+        #visibleButton {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        #visibleButton img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: fallHearts 5s linear infinite;
+        }
+
+        @keyframes fallHearts {
+            0% {
+                transform: translateY(-100px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="revealButton">Haz clic para leer la carta</button>
+        <div class="card" id="loveLetter">
+            <h2>Mi <span class="highlight">amor</span></h2>
+            <p>
+                Cada oportunidad que he podido estar a tu lado solo me convence más y más del <span class="highlight">amor</span> que siento por ti. 
+                Eres el <span class="highlight">motivo</span> por el cual mi corazón siempre late con fuerza.
+            </p>
+            <p>
+                Escuchar tu voz para mí es como una canción que nunca me cansaré de escuchar, una <span class="highlight">melodía</span> dulce y hermosa 
+                que acaricia mi alma y me hace sentir aliviado.
+            </p>
+            <p>
+                No puedo evitar soñar con un <span class="highlight">futuro</span> contigo, donde caminemos de la mano y enfrentemos juntos cada reto.
+            </p>
+            <p>
+                Te <span class="highlight">amo</span> con todo mi ser, y solo quiero seguir <span class="highlight">amándote</span> por siempre.
+            </p>
+            <p>Con todo mi amor,<br><span class="highlight">Jeff Barrios</span></p>
+            <p class="quote">"Amar es saber que no existe un final, porque siempre existirá un mañana contigo."</p>
+        </div>
+    </div>
+
+    <!-- Polvo de estrellas -->
+    <div class="dust"></div>
+
+    <!-- Botón visible -->
+    <button id="visibleButton"><img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Corazón"></button>
+
+    <script>
+        document.getElementById('revealButton').addEventListener('click', function() {
+            var letter = document.getElementById('loveLetter');
+            letter.classList.add('show');
+            document.body.style.background = 'linear-gradient(45deg, #FF69B4, #FFB6C1, #E6E6FA, #87CEEB)';
+            this.style.display = 'none';
+        });
+
+        // Polvo de estrellas que sigue al cursor
+        document.body.addEventListener('mousemove', function(e) {
+            var star = document.createElement('div');
+            star.classList.add('dust');
+            star.style.left = e.pageX + 'px';
+            star.style.top = e.pageY + 'px';
+            document.body.appendChild(star);
+            setTimeout(function() {
+                star.remove();
+            }, 1000);
+        });
+
+        // Botón visible que lanza corazones
+        document.getElementById('visibleButton').addEventListener('click', function() {
+            var hearts = document.createElement('div');
+            hearts.classList.add('hearts');
+            hearts.style.left = (Math.random() * window.innerWidth) + 'px';
+            document.body.appendChild(hearts);
+            setTimeout(function() {
+                hearts.remove();
+            }, 3000);
+            alert("Siempre tuyo ♥");
+        });
+    </script>
+</body>
+</html>
